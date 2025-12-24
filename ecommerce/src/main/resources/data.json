@@ -1,0 +1,14 @@
+[
+  {
+    "name": "iPhone 15",
+    "category": "electronics",
+    "price": 999.99,
+    "inventoryQuantity": 20
+  },
+  {
+    "name": "MacBook Pro",
+    "category": "electronics",
+    "price": 1999.99,
+    "inventoryQuantity": 10
+  }
+]
