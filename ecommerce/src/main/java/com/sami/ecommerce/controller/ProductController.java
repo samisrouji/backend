@@ -2,7 +2,11 @@ package com.sami.ecommerce.controller;
 
 import com.sami.ecommerce.entity.Product;
 import com.sami.ecommerce.service.ProductService;
+
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,18 +29,22 @@ public class ProductController {
     }
 
     @PostMapping
-    public Product create(@RequestBody Product product) {
+    @ResponseStatus(HttpStatus.CREATED)
+    public Product create(@Valid @RequestBody Product product) {
         return service.create(product);
     }
 
     @PutMapping("/{id}")
-    public Product update(@PathVariable Long id, @RequestBody Product product) {
+    public Product update(@PathVariable Long id, @Valid @RequestBody Product product) {
         return service.update(id, product);
     }
 
     @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Long id) {
         service.delete(id);
     }
 }
+
+
 
