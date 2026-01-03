@@ -1,0 +1,31 @@
+package com.sami.ecommerce.controller;
+
+import com.sami.ecommerce.entity.Cart;
+import com.sami.ecommerce.service.CartService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/carts")
+@RequiredArgsConstructor
+public class CartController {
+
+    private final CartService service;
+
+    @GetMapping
+    public List<Cart> getAll() { return service.getAll(); }
+
+    @GetMapping("/{id}")
+    public Cart get(@PathVariable Long id) { return service.getById(id); }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public Cart create(@RequestBody Cart cart) { return service.create(cart); }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable Long id) { service.delete(id); }
+}
