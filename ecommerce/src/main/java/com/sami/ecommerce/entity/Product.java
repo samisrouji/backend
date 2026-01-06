@@ -31,5 +31,8 @@ public class Product {
     @NotNull(message = "Inventory quantity is required")
     @Min(value = 0, message = "Inventory quantity cannot be negative")
     private Integer inventoryQuantity;
+
+    @Column(nullable = false)
+    private Boolean isAvailable;
 }
 

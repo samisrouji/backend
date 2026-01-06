@@ -25,6 +25,7 @@ public class ProductService {
     }
 
     public Product create(Product product) {
+        product.setIsAvailable(product.getInventoryQuantity() > 0);
         return repository.save(product);
     }
 
@@ -34,6 +35,7 @@ public class ProductService {
         existing.setPrice(updated.getPrice());
         existing.setCategory(updated.getCategory());
         existing.setInventoryQuantity(updated.getInventoryQuantity());
+        existing.setIsAvailable(existing.getInventoryQuantity() > 0);
         return repository.save(existing);
     }
 
