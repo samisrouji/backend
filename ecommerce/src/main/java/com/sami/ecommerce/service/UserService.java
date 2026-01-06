@@ -1,5 +1,7 @@
 package com.sami.ecommerce.service;
 
+import com.sami.ecommerce.dto.UserDetailsDTO;
+import com.sami.ecommerce.dto.UserEmailDTO;
 import com.sami.ecommerce.entity.User;
 import com.sami.ecommerce.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -18,6 +20,25 @@ public class UserService {
     public User getById(Long id) {
         return repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("User not found"));
+    }
+
+    public UserEmailDTO getByEmail(String email) {
+        User user = repository.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+        return new UserEmailDTO(user.getId(), user.getName(), user.getEmail());
+    }
+    
+    public UserDetailsDTO getDetailsById(Long id) {
+        User user = repository.findById(id)
+            .orElseThrow(() -> new RuntimeException("User not found"));
+
+        return new UserDetailsDTO(
+            user.getId(),
+            user.getName(),
+            user.getEmail(),
+            user.getAddresses(),
+            user.getProfile()
+        );
     }
 
     public User create(User user) {

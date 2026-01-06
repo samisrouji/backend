@@ -1,5 +1,7 @@
 package com.sami.ecommerce.controller;
 
+import com.sami.ecommerce.dto.UserDetailsDTO;
+import com.sami.ecommerce.dto.UserEmailDTO;
 import com.sami.ecommerce.entity.User;
 import com.sami.ecommerce.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -20,6 +22,12 @@ public class UserController {
 
     @GetMapping("/{id}")
     public User get(@PathVariable Long id) { return service.getById(id); }
+
+    @GetMapping("/{id}/details")
+    public UserDetailsDTO getDetails(@PathVariable Long id) { return service.getDetailsById(id); }
+
+    @GetMapping("/by-email")
+    public UserEmailDTO getByEmail(@RequestParam String email) { return service.getByEmail(email); }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
