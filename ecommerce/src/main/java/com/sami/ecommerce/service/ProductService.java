@@ -39,6 +39,16 @@ public class ProductService {
         return repository.save(existing);
     }
 
+    // Update isAvailable field for all products based on inventoryQuantity
+    public void updateAvailabilityForAllProducts() {
+    List<Product> products = repository.findAll();
+    for (Product product : products) {
+        product.setIsAvailable(product.getInventoryQuantity() > 0);
+    }
+    repository.saveAll(products);
+}
+
+
     public void delete(Long id) {
         if (!repository.existsById(id)) {
             throw new RuntimeException("Product not found");
