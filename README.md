@@ -22,7 +22,7 @@ A `Dockerfile` and `docker-compose.yml` have been added so you can run the backe
 docker compose up --build
 ```
 
-The backend will be available at `http://localhost:8080` and MySQL at `localhost:3306`.
+The backend will be available at `http://localhost:8080` and MySQL at `localhost:3307`.
 
 If you want to build only the backend image:
 
