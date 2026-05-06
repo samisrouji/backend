@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:5173") // allow your frontend port
+@CrossOrigin(origins = "http://localhost:8080") // allow your frontend port
 @RestController
 @RequestMapping("/api/products")
 @RequiredArgsConstructor
