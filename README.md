@@ -11,3 +11,22 @@ cd backend
 
 # 2. Run the Spring Boot application
 mvn spring-boot:run
+```
+
+## Run with Docker
+
+A `Dockerfile` and `docker-compose.yml` have been added so you can run the backend together with MySQL.
+
+```bash
+# Build and start both containers
+docker compose up --build
+```
+
+The backend will be available at `http://localhost:8080` and MySQL at `localhost:3306`.
+
+If you want to build only the backend image:
+
+```bash
+docker build -t ecommerce-backend .
+```
+
