@@ -2,7 +2,7 @@
 
 This is a **Spring Boot (Java)** backend application that provides data (products) for the frontend.
 
-To run this app, make sure you have **Java** and **Maven (mvn)** installed. Then follow these steps:
+To run this app, make sure you have **Java**, **Maven (mvn)** and **MySQL** installed. Then follow these steps:
 
 ```bash
 # 1. Clone the repository
