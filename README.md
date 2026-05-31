@@ -9,7 +9,15 @@ To run this app, make sure you have **Java** and **Maven (mvn)** installed. Then
 git clone https://github.com/samisrouji/backend.git
 cd backend
 
-# 2. Run the Spring Boot application
+# 2. First-time setup and run
+mysql -u root -p1234 -e "CREATE DATABASE IF NOT EXISTS ecommerce_db;" && \
+mysql -u root -p1234 ecommerce_db < src/main/resources/db/schema.sql && \
+mvn spring-boot:run
+```
+
+> **Note:** After the initial setup, you can start the application with:
+
+```bash
 mvn spring-boot:run
 ```
 
